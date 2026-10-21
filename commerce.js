@@ -18,7 +18,7 @@ const navLinks=document.querySelector('.navlinks');
 if(navLinks) {
  const etsyNav=[...navLinks.querySelectorAll('a')].find(a=>a.href.includes('etsy.com'));
  if(etsyNav)etsyNav.remove();
- navLinks.appendChild(link('WHATSAPP ORDERS ↗',greeting,'dw-toplink'));
+ if(![...navLinks.querySelectorAll('a')].some(a=>a.textContent.includes('WHATSAPP ORDERS')))navLinks.appendChild(link('WHATSAPP ORDERS ↗',greeting,'dw-toplink'));
 }
 document.body.appendChild(link('✆  Order on WhatsApp',greeting,'dw-floating'));
 const notice=document.querySelector('#cartOverlay .notice');
