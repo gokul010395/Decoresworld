@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.Decoresworld" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#B38E57</item>
+        <item name="android:statusBarColor">#173028</item>
+        <item name="android:navigationBarColor">#173028</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">#F9F7F2</item>
+    </style>
+</resources>
