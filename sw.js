@@ -1,4 +1,4 @@
-const CACHE='decoresworld-mobile-v1';
+const CACHE='decoresworld-mobile-v2';
 const SHELL=['./','./index.html','./commerce.js','./enhancements.js','./mobile-app.js','./manifest.webmanifest','./icons/decoresworld-192.svg','./icons/decoresworld-512.svg'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()));
