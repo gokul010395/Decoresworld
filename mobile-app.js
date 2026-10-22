@@ -4,7 +4,7 @@
 if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}),{once:true});
 }
-if(window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)return;
+if(window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true||/\bwv\b|DecoresworldAndroidApp\//i.test(navigator.userAgent))return;
 const css=document.createElement('style');
 css.textContent='.dw-app-install{position:fixed;bottom:18px;left:16px;z-index:40;display:flex;align-items:center;gap:7px;padding:13px 17px;border:1px solid #b58f56;border-radius:30px;color:#173028;background:#fffaf0;box-shadow:0 8px 25px rgba(14,42,32,.18);font:700 12px/1.3 Arial,sans-serif;cursor:pointer;letter-spacing:.3px}.dw-app-install:hover{background:#f1e8d5}.dw-app-panel{position:fixed;z-index:80;inset:0;background:rgba(7,25,19,.48);display:flex;align-items:center;justify-content:center;padding:20px}.dw-app-panel-inner{position:relative;background:#faf8f2;color:#173028;padding:28px 24px;max-width:410px;width:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.2);font:15px/1.7 Arial,sans-serif}.dw-app-panel h2{font:400 28px/1.2 Georgia,serif;margin:0 20px 14px 0}.dw-app-close{position:absolute;top:9px;right:10px;padding:6px 12px;border:0;background:none;font-size:26px;cursor:pointer;color:#173028}.dw-app-panel p{margin:0 0 11px}@media(min-width:900px){.dw-app-install{bottom:22px;left:22px}}';
 document.head.appendChild(css);
