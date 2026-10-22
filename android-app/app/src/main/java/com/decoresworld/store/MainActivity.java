@@ -122,6 +122,8 @@ public final class MainActivity extends Activity {
         FrameLayout stage = new FrameLayout(this);
         browser = new WebView(this);
         WebSettings settings = browser.getSettings();
+        // Identify our native app so the website never offers another install prompt.
+        settings.setUserAgentString(settings.getUserAgentString() + " DecoresworldAndroidApp/1.0");
         settings.setJavaScriptEnabled(true); // Required for existing Decoresworld catalogue/cart.
         settings.setDomStorageEnabled(true);
         settings.setAllowFileAccess(false);
