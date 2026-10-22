@@ -13,31 +13,72 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Check out project
         uses: actions/checkout@v4
+
       - name: Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
+
       - name: Android SDK
         uses: android-actions/setup-android@v3
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+
       - name: Install Android platform
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+
       - name: Build installable debug APK
+        id: build_apk
         working-directory: android-app
-        run: gradle --no-daemon --stacktrace :app:assembleDebug
-      - name: Upload APK for download
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle --no-daemon --stacktrace --console=plain :app:assembleDebug 2>&1 | tee "$GITHUB_WORKSPACE/android-build.log"
+
+      - name: Upload debug APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: Decoresworld-Android-debug-APK
           path: android-app/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
           retention-days: 30
+
+      - name: Store build diagnostics in repo
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          mkdir -p .ci-logs
+          {
+            echo "Decoresworld Android build diagnostics"
+            echo "Commit: $GITHUB_SHA"
+            echo "Run: $GITHUB_RUN_ID"
+            echo "APK build step outcome: ${{ steps.build_apk.outcome }}"
+            echo "Timestamp UTC: $(date -u -Iseconds)"
+            echo ""
+            if [ -f android-build.log ]; then
+              tail -n 260 android-build.log
+            else
+              echo "No Gradle log produced. Build failed in an earlier setup step."
+            fi
+          } > .ci-logs/last-android-build.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .ci-logs/last-android-build.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'CI diagnostics: latest Android build'
+            git push origin HEAD:main
+          fi
+
       - name: Publish test APK in repo
         if: success() && github.ref == 'refs/heads/main'
         run: |
