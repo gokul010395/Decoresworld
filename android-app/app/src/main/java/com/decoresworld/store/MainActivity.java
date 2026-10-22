@@ -31,9 +31,9 @@ import android.widget.Toast;
 
 public final class MainActivity extends Activity {
     // Public website: no customer credentials or PayPal checkout are stored in the app.
-    private static final String SITE = "https://gokul010395.github.io/Decoresworld/";
-    private static final String SITE_HOST = "gokul010395.github.io";
-    private static final String SITE_PATH = "/Decoresworld";
+    private static final String SITE = "https://decoresworld.netlify.app/";
+    private static final String SITE_HOST = "decoresworld.netlify.app";
+    private static final String SITE_PATH = "";
     private static final String WHATSAPP = "https://wa.me/917904378890?text=Hello%20Decoresworld%2C%20I%20would%20like%20to%20order%20handcrafted%20wooden%20decor.";
     private static final int GREEN = Color.rgb(23,48,40);
     private static final int GOLD = Color.rgb(186,152,102);
