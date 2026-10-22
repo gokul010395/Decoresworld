@@ -1,27 +1,17 @@
 Decoresworld Android build diagnostics
-Commit: 31b58d55fb9db2b910049b65932e6ad33796433e
-Run: 39809359629
+Commit: 119a49cae0bd9bfe744c4dba91fe171270eb0a36
+Run: 39814752820
 APK build step outcome: success
-Timestamp UTC: 2026-10-22T15:56:32+00:00
-
-
-Welcome to Gradle 8.9!
-
-Here are the highlights of this release:
- - Enhanced Error and Warning Messages
- - IDE Integration Improvements
- - Daemon JVM Information
-
-For more details see https://docs.gradle.org/8.9/release-notes.html
+Timestamp UTC: 2026-10-22T16:31:57+00:00
 
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :app:javaPreCompileDebug
-> Task :app:checkDebugAarMetadata
 > Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :app:javaPreCompileDebug
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :app:packageDebugResources
@@ -36,16 +26,16 @@ Daemon will be stopped at the end of the build
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
 > Task :app:compressDebugAssets
-> Task :app:processDebugManifestForPackage
 > Task :app:desugarDebugFileDependencies
 > Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
 > Task :app:checkDebugDuplicateClasses
-> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugJavaResource
 > Task :app:mergeExtDexDebug
 > Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJniLibFolders
 > Task :app:mergeDebugNativeLibs NO-SOURCE
 > Task :app:stripDebugDebugSymbols NO-SOURCE
-> Task :app:mergeDebugJavaResource
 > Task :app:processDebugResources
 > Task :app:validateSigningDebug
 
@@ -54,14 +44,14 @@ Note: /home/runner/work/Decoresworld/Decoresworld/android-app/app/src/main/java/
 Note: Recompile with -Xlint:deprecation for details.
 
 > Task :app:dexBuilderDebug
-> Task :app:mergeDebugGlobalSynthetics
 > Task :app:writeDebugAppMetadata
+> Task :app:mergeDebugGlobalSynthetics
 > Task :app:writeDebugSigningConfigVersions
 > Task :app:mergeProjectDexDebug
 > Task :app:packageDebug
 > Task :app:createDebugApkListingFileRedirect
 > Task :app:assembleDebug
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build_apk-1792684556365.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build_apk-1792686707049.json
 
-BUILD SUCCESSFUL in 41s
+BUILD SUCCESSFUL in 13s
 32 actionable tasks: 32 executed
