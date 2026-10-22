@@ -1,0 +1,7 @@
+Decoresworld Android build diagnostics
+Commit: 43ca79fdb999656c261c036581ca006a79d9b1de
+Run: 39808698984
+APK build step outcome: skipped
+Timestamp UTC: 2026-10-22T15:51:32+00:00
+
+No Gradle log produced. Build failed in an earlier setup step.
